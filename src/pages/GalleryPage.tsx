@@ -26,8 +26,8 @@ export const GalleryPage = () => {
   useEffect(() => {
     const fetchGallery = async () => {
       try {
-        const randomValue = Math.random();
-        const images: Image[] = await GalleryApi(initialLoad ? num_images : num_images, randomValue, page, parameters);
+
+        const images: Image[] = await GalleryApi(initialLoad ? num_images : num_images, page, parameters);
         setGallery((prevGallery) => (initialLoad ? [...images] : [...prevGallery, ...images]));
         setInitialLoad(false);
       } catch (error) {
@@ -49,8 +49,8 @@ export const GalleryPage = () => {
 
     if (parameters != "" && parameters.length > 1) {
       try {
-        const randomValue = Math.random();
-        const resultados = await GalleryApi(num_images, randomValue, page, parameters);
+      
+        const resultados = await GalleryApi(num_images,  page, parameters);
         setGallery(resultados);
         scrollToGallery()
       } catch (error) {

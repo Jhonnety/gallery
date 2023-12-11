@@ -1,11 +1,11 @@
 import { Image } from "../models/ImageMode";
 import Swal from 'sweetalert2';
 
-export const GalleryApi = (count = 10, randomValue = 0, page = 1, parameters = "") => {
+export const GalleryApi = (count = 10, page = 1, parameters = "") => {
 
     const apiKey = import.meta.env.VITE_UNSPLASH_API_KEY
 
-    const apiUrl = `https://api.unsplash.com/photos/random?count=${count}&client_id=${apiKey}&random=${randomValue}&page=${page}${parameters !== "" ? `&query=${parameters}` : ""}`;
+    const apiUrl = `https://api.unsplash.com/photos/random?count=${count}&client_id=${apiKey}&page=${page}${parameters !== "" ? `&query=${parameters}` : ""}`;
 
     return fetch(apiUrl)
         .then((response) => {
